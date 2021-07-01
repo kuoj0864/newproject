@@ -1,0 +1,29 @@
+server:
+  port: ${PORT:8080}
+  
+spring:
+  application:
+    name: ppmtool
+
+# DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+  datasource:
+    url: jdbc:mysql://us-cdbr-east-04.cleardb.com/heroku_c21f3b246716a28?reconnect=true
+    username: bc28ef4cccbb55
+    password: 2ad3da52
+
+
+# JPA (JpaBaseConfiguration, HibernateJpaAutoConfiguration)
+  data:
+    jpa:
+      repositories:
+        enabled: true
+        
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    properties:
+      hibernate:
+        # Conflict with Keroku from local host
+        # dialect: org.hibernate.dialect.MySQL5InnoDBDialect 
+    hibernate:
+      ddl-auto: update
